@@ -1,5 +1,10 @@
 body {
+	background-color: #0d0c0c;
 	font-family: 'Syncopate', sans-serif;
+}
+
+p {
+	font-size: 12px;
 }
 
 #gif {
@@ -7,11 +12,11 @@ body {
 	left: 0px;
 	height: 100%;
 	width: 100%;
-	position: absolute;
+	position: fixed;
 	background: url("giphy.gif") no-repeat center center fixed;
-	-webkit-filter: blur(2px) grayscale(0.8) brightness(0.8);
-	background-size: cover;	
-	z-index: -99;
+	-webkit-filter: blur(1px) grayscale(0.2) brightness(0.8);
+	background-size: cover;
+	z-index: -10;
 }
 
 #title {
@@ -22,80 +27,52 @@ body {
 	color: white;
 }
 
-#belgrave { 
+#belgrave {
+	cursor: pointer;
 	width: 500px;
 	height: auto;
+	margin-top: 80px;
 	margin-right: auto;
 	margin-left: auto;
 	display: block;
-    transition: 0.1s ease-out;
-    -webkit-transition: 0.1s ease-out;
-    position:absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
-
+  transition: 0.1s ease-out;
+  -webkit-transition: 0.1s ease-out;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 10;
 }
 
-#audio {
-	opacity: 0.3;
-}
-
-#center {
-	width: 100%;
-	position: relative;
-}
-
-#days {
+.timeField {
+	width: 110px;
 	border: 2px solid white;
 	border-radius: 50%;
 	margin-right: 20px;
-	margin-left: 60px;
-    margin-top: 325px;
-	font-size: 40px;
-	font-weight: bold;
-	text-align: center;
-	color: white;
-	font-family: 'Orbitron', sans-serif;
-	position: relative;
-}
-
-#hours {
-	border: 2px solid white;
-	border-radius: 50%;
-    margin-top: 325px;
-    margin-left: 20px;
-    margin-right: 20px;
-	font-size: 40px;
-	font-weight: bold;
-	text-align: center;
-	color: white;
-	font-family: 'Orbitron', sans-serif;
-	position: relative;
-}
-
-#minutes {
-	border: 2px solid white;
-	border-radius: 50%;
-    margin-top: 325px;
-    margin-left: 20px;
-    margin-right: 20px;
-	font-size: 40px;
-	font-weight: bold;
-	text-align: center;
-	color: white;
-	font-family: 'Orbitron', sans-serif;
-	position: relative;
-}
-
-#seconds {
-	border: 2px solid white;
-	border-radius: 50%;
 	margin-left: 20px;
-    margin-top: 325px;
-	font-size: 40px;
-	font-weight: bold;
-	text-align: center;
+	position: relative;
+	float: left;
+	display: table-cell;
+	padding: 12px 15px 5px 15px;
+}
+
+#counterContainer {
 	color: white;
 	font-family: 'Orbitron', sans-serif;
-	position: relative;
+	font-size: 40px;
+	font-weight: bold;
+  margin-top: 430px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: table;
+}
+
+@media screen and (max-width: 1024px) {
+	#belgrave {
+		margin-top: 120px;
+	}
+
+	#counterContainer {
+		margin-top: 530px;
+	}
 }

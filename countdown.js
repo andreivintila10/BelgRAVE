@@ -4,21 +4,23 @@ var demo, daysD, hoursD, minutesD, secondsD;
 var now, distance, days, hours, minutes, seconds;
 
 
-do {
-  daysD = document.getElementById("d_d");
-} while (daysD == null);
+var daysDividedBy = 1000 * 60 * 60 * 24;
+var hoursDividedBy = 1000 * 60 * 60;
+var minutesDividedBy = 1000 * 60;
 
-do {
-  hoursD = document.getElementById("d_h");
-} while (hoursD == null);
 
-do {
-  minutesD = document.getElementById("d_m");
-} while (minutesD == null);
+daysD = document.getElementById("days");
+hoursD = document.getElementById("hours");
+minutesD = document.getElementById("minutes");
+secondsD = document.getElementById("seconds");
 
-do {
-  secondsD = document.getElementById("d_s");
-} while (secondsD == null);
+
+function format2DigitCounter(number) {
+  if (number < 10)
+    return "0" + number;
+
+  return number;
+}
 
 
 // Update the count down every 1 second.
@@ -31,16 +33,16 @@ var x = setInterval(function() {
   distance = countDownDate - now;
 
   // Time calculations for days, hours, minutes and seconds.
-  days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  days = Math.floor(distance / daysDividedBy);
+  hours = Math.floor((distance % daysDividedBy) / hoursDividedBy);
+  minutes = Math.floor((distance % hoursDividedBy) / minutesDividedBy);
+  seconds = Math.floor((distance % minutesDividedBy) / 1000);
 
   if (distance > 0) {
-    daysD.innerHTML = days;
-    hoursD.innerHTML = hours;
-    minutesD.innerHTML = minutes;
-    secondsD.innerHTML = seconds;
+    daysD.innerHTML = format2DigitCounter(days);
+    hoursD.innerHTML = format2DigitCounter(hours);
+    minutesD.innerHTML = format2DigitCounter(minutes);
+    secondsD.innerHTML = format2DigitCounter(seconds);
   }
   else {
     clearInterval(x);

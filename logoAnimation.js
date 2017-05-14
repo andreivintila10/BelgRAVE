@@ -1,17 +1,17 @@
-var logo;
-
-do {
-  logo = document.getElementById("belgrave");
-} while (logo == null);
-
+var logo = document.getElementById("belgrave");
 var turn = 0;
-var x = setInterval(function() {
+
+logo.onclick = function() {
+  window.location.href = "belgrave.html";
+}
+
+
+setInterval(function() {
   if (turn == 0) {
   	logo.style.width = "600px";
   	turn = 1;
   }
-  else
-  {
+  else {
   	logo.style.width = "500px";
   	turn = 0;
   }
